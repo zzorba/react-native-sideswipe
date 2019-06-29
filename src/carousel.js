@@ -68,7 +68,7 @@ export default class SideSwipe extends Component<CarouselProps, State> {
     };
 
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponder: () => this.handleGestureCapture,
       onMoveShouldSetPanResponder: this.handleGestureCapture,
       onPanResponderGrant: this.handleGestureStart,
       onPanResponderMove: this.handleGestureMove,

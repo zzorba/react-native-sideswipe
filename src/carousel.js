@@ -84,13 +84,13 @@ export default class SideSwipe extends Component<CarouselProps, State> {
       this.state.itemWidthAnim.setValue(itemWidth);
     }
 
-    if (Number.isInteger(index) && index !== prevProps.index) {
+    if (Number.isInteger(index) && index !== prevProps.index && index !== this.state.currentIndex) {
       this.setState(
         () => ({ currentIndex: index }),
         () => {
           setTimeout(() =>
             this.list.scrollToIndex({
-              animated: true,
+              animated: false,
               index: this.state.currentIndex,
               viewOffset: contentOffset,
             })
@@ -217,7 +217,7 @@ export default class SideSwipe extends Component<CarouselProps, State> {
 
     this.list.scrollToIndex({
       index: newIndex,
-      animated: true,
+      animated: false,
       viewOffset: this.props.contentOffset,
     });
 
